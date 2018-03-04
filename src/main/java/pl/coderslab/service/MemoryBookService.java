@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import pl.coderslab.model.Book;
-
+//this class obj needs to be injected into our Controller Class
 @Component
-public class MemoryBookService {
+public class MemoryBookService implements BookService {
 	
 	private List<Book> list;
     
@@ -28,6 +28,34 @@ public class MemoryBookService {
     
     public void setList(List<Book> list) {
     	this.list = list;
+    }
+    
+    /**
+     * searches for Book obj with desired id
+     * @param id
+     * @return Book obj
+     */
+    public Book getBookById(long id) {
+    	for (Book book : list) {
+    		if (book.getId() == id) {
+    			
+    			return book;
+    		}
+		}
+    	return null;
+    } 
+    
+    public void addBookToList(Book book) {
+    	this.list.add(book);
+    }
+    
+    public void updateBook(Book original, Book updated) {
+    	int index = this.list.indexOf(original);
+    	this.list.set(index, updated);
+    }
+    
+    public void deleteBook(Book book) {
+    	this.list.remove(book);
     }
 
 }
