@@ -6,7 +6,6 @@ import pl.coderslab.model.Book;
 
 public interface BookService {
 	List<Book> getList();
-	public void setList(List<Book> list);
 	public Book getBookById(long id);
 	public void addBookToList(Book book);
 	public void updateBook(Book original, Book updated);

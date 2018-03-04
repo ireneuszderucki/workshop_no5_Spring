@@ -26,10 +26,6 @@ public class MemoryBookService implements BookService {
     	return list;
     }
     
-    public void setList(List<Book> list) {
-    	this.list = list;
-    }
-    
     /**
      * searches for Book obj with desired id
      * @param id
